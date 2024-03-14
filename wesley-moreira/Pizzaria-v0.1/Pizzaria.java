@@ -1,7 +1,7 @@
 import java.util.Scanner;
 public class Pizzaria { 
     public static void main (String[] args) {
-        System.out.println("Bem vindo a pizzaria do Louigi");
+        System.out.println("Bem vindo a pizzaria quasePronto");
 
         Scanner sc = new Scanner(System.in);
 
