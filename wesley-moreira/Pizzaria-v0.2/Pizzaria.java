@@ -1,40 +1,40 @@
 import java.util.Scanner;
- 
-public class Pizzaria { 
-    public static void main (String[] args) {
-        System.out.println("Bem vindo a pizzaria quasePronto");
-
-        Scanner sc = new Scanner(System.in);
+public class Pizzaria{
+    public static void main(String[] args){
+        Scanner input = new Scanner(System.in);
+        System.out.println("Bem vindo a pizzaria quasePronto >.<");
 
         Pedido pedido = new Pedido();
-
+        
         String continuar;
-        do {
+
+        do{
             ItemDoPedido item = new ItemDoPedido();
 
-            System.out.println("Informe o tipo da pizza: ");
-            item.setTipo(sc.next());
+            System.out.print("Informe o tipo de pizza '^' ");
+            item.setTipo(input.nextLine());
 
-            System.out.println("Informe o sabor da pizza: ");
-            item.setSabor(sc.next());
+            System.out.print("Informe o sabor de pizza '^' ");
+            item.setSabor(input.nextLine());
 
-            System.out.println("Informe o valor da pizza: ");
-            item.setValor(sc.nextDouble());
+            pedido.addItem(item);
+            
+            pedido.setTotal(item.tipos());
 
-            pedido.adicionarItemDoPedido(item);
-
-            System.out.println("> mais alguma coisa pequeno padawan? <");
-            continuar = sc.next();
+            System.out.println(">.< mais alguma coisa pequeno padawan? >.<");
+            continuar = input.nextLine();
 
         } while(!continuar.equalsIgnoreCase(""));
 
-        System.out.println("Nome do cliente: ");
-        pedido.setCliente(sc.next());
+        System.out.print("Nome do cliente: ");
+        pedido.setCliente(input.nextLine());
 
-        System.out.println("Taxa de entrega: ");
-        pedido.setTaxaEntrega(sc.nextDouble());
+        System.out.print("Taxa de entrega: ");
+        pedido.setTaxaDeEntrega(input.nextDouble());
+        input.nextLine();
 
-        
+        pedido.setTotal(pedido.getTaxaDeEntrega());
+
         pedido.imprimir();
     }
 }

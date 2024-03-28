@@ -1,24 +1,36 @@
-public class ItemDoPedido {
+public class ItemDoPedido{
     private double valor;
     private String sabor;
     private String tipo;
 
-    public void setTipo(String tipo) {
+    public void setTipo(String tipo){
         this.tipo = tipo;
     }
-    public void setSabor(String sabor) {
+
+    public void setSabor(String sabor){
         this.sabor = sabor;
     }
-    public void setValor(double valor) {
+
+    public void setValor(Double valor){
         this.valor = valor;
     }
-    public double getValor() {
+
+    public double getValor(){
         return this.valor;
     }
-    public String getSabor () {
+
+    public String getSabor(){
         return this.sabor;
     }
-    public String getTipo() {
+
+    public String getTipo(){
         return this.tipo;
+    }
+    public double tipos() {
+        if (this.tipo.equalsIgnoreCase("tradicional")) {
+            return 40;
+        }else{
+            return 50;
+        }
     }
 }
