@@ -12,14 +12,14 @@ public class Pizzaria{
             ItemDoPedido item = new ItemDoPedido();
 
             System.out.print("Informe o tipo de pizza '^' ");
-            item.setTipo(input.nextLine());
+            item.setTipo(input.nextLine().trim());
 
             System.out.print("Informe o sabor de pizza '^' ");
             item.setSabor(input.nextLine());
 
             pedido.addItem(item);
             
-            pedido.setTotal(item.tipos());
+            pedido.setTotal(item.getValor());
 
             System.out.println(">.< mais alguma coisa pequeno padawan? >.<");
             continuar = input.nextLine();
@@ -29,8 +29,8 @@ public class Pizzaria{
         System.out.print("Nome do cliente: ");
         pedido.setCliente(input.nextLine());
 
-        System.out.print("Taxa de entrega: ");
-        pedido.setTaxaDeEntrega(input.nextDouble());
+        System.out.print("local da entrega: ");
+        pedido.setLocalEntrega(input.next());
         input.nextLine();
 
         pedido.setTotal(pedido.getTaxaDeEntrega());

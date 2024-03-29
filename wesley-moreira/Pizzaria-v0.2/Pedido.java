@@ -4,6 +4,7 @@ public class Pedido{
     private ArrayList<ItemDoPedido> itemDoPedido = new ArrayList<>();
     private String cliente;
     private double total = 0;
+    private String localEntrega;
 
     public void addItem(ItemDoPedido item){
         this.itemDoPedido.add(item);
@@ -13,16 +14,25 @@ public class Pedido{
         this.cliente = nome;
     }
 
-    public void setTaxaDeEntrega(double taxaEntrega){
-        this.taxaEntrega = taxaEntrega;
-    }
-
     public double getTaxaDeEntrega(){
-        return this.taxaEntrega;
+        if (this.localEntrega.equalsIgnoreCase("centro")) {
+            return 10;
+        }
+        if (this.localEntrega.equalsIgnoreCase("periferia")) {
+            return 15;
+        }else{
+            return 20;
+        }
     }
 
     public void setTotal(double total){
         this.total += total;
+    }
+    public void setLocalEntrega(String localEntrega) {
+        this.localEntrega = localEntrega;
+    }
+    public String getLocalEntrega() {
+        return localEntrega;
     }
 
     public void imprimir(){
@@ -35,11 +45,12 @@ public class Pedido{
         for(int i = 0; i < itemDoPedido.size(); i++){
             System.out.println(formatar("Tipo", this.itemDoPedido.get(i).getTipo()));
             System.out.println(formatar("Sabor", this.itemDoPedido.get(i).getSabor()));
-            System.out.println(formatar("Valor", String.valueOf(this.itemDoPedido.get(i).tipos())));
+            System.out.println(formatar("Valor", String.valueOf(this.itemDoPedido.get(i).getValor())));
             System.out.println("");
         }
         System.out.println("----------------------------------------");
-        System.out.println(formatar("Tx. Entrega", String.valueOf(this.taxaEntrega)));
+        System.out.println(formatar("Tx. Entrega", String.valueOf(this.getTaxaDeEntrega())));
+        System.out.println(formatar("local", String.valueOf(this.getLocalEntrega())));
         System.out.println("----------------------------------------");
         System.out.println(formatar("Total", String.valueOf(this.total)));
         System.out.println("----------------------------------------");

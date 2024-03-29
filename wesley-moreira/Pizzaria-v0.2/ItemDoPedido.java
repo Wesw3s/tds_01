@@ -11,12 +11,16 @@ public class ItemDoPedido{
         this.sabor = sabor;
     }
 
-    public void setValor(Double valor){
-        this.valor = valor;
-    }
+    //public void setValor(Double valor){
+    //    this.valor = valor;
+    //}
 
     public double getValor(){
-        return this.valor;
+        if (this.tipo.equalsIgnoreCase("tradicional")) {
+            return 40;
+        }else{
+            return 50;
+        }
     }
 
     public String getSabor(){
@@ -26,11 +30,5 @@ public class ItemDoPedido{
     public String getTipo(){
         return this.tipo;
     }
-    public double tipos() {
-        if (this.tipo.equalsIgnoreCase("tradicional")) {
-            return 40;
-        }else{
-            return 50;
-        }
-    }
+
 }
